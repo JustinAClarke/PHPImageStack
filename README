@@ -1,0 +1,32 @@
+This is a program to layer multiple images and the lighter(brighter) pixel gets to take perfernce,
+
+I am mainly creating this for when I get around to taking star shots with my camera, and using this to create star trails.
+
+I will be using PHP and the GD library
+
+The following functions will be required:
+
+to get the image height
+ int imagesy ( resource $image )
+
+to get the image width
+ int imagesx ( resource $image )
+
+to get the pixel color at specified point.
+ int imagecolorat ( resource $image , int $x , int $y )
+
+to set the "final" pixel	
+ bool imagesetpixel ( resource $image , int $x , int $y , int $color )
+
+
+I will then loop through the images in the folder, and loop through the pixels in the image, then cat the 'brightest' pixels to a final image, that will either be specified as output.jpg, or the specified filename by CLI switch -o
+
+
+The main idea of this script will be to get <input folder> <output file>
+get first image, get width and height
+then loop through every pixel width first then height, and check them with the 'source' image, and the 'output image' whichever is 'brighter' (has a larger number) will be written to the 'output' image. the loop will then move on.
+
+yes this is not the most effecient design, but I could always open every image into an array then loop through each pixel from every image in the array, and then check it.
+But I dont want to hammer the ram that much...
+
+
